@@ -1,6 +1,21 @@
 import joblib
 import pandas as pd
-import streamlit as st
+# Skin lesion photo upload
+st.subheader("Upload Skin Lesion Photo")
+
+uploaded_image = st.file_uploader(
+    "Choose a skin lesion image",
+    type=["jpg", "jpeg", "png"]
+)
+
+if uploaded_image is not None:
+    st.image(
+        uploaded_image,
+        caption="Uploaded Skin Lesion Image",
+        use_container_width=True
+    )
+
+    st.success("Image uploaded successfully!")
 from pathlib import Path
 
 st.set_page_config(
